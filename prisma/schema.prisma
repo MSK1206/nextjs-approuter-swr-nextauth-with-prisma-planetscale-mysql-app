@@ -14,13 +14,24 @@ model User {
   email         String?   @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
-  isAdmin       Boolean?  @default(false)
+  role          String?   
   createdAt     DateTime  @default(now())
+  profile       Profile?
   posts         Post[]
   accounts      Account[]
   sessions      Session[]
 
   @@map("users")
+}
+
+model Profile {
+  id     String  @id @default(cuid())
+  bio    String?
+  userId String  @unique
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("profiles")
 }
 
 model Account {
