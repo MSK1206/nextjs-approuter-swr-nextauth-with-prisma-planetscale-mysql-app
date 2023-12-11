@@ -1,9 +1,8 @@
 import type { NextAuthConfig } from 'next-auth';
-import { PrismaAdapter } from '@auth/prisma-adapter';
-import prisma from '@/lib/prisma';
+import GitHub from 'next-auth/providers/github';
 
 export const authConfig = {
-  adapter: PrismaAdapter(prisma),
+  session: { strategy: 'jwt' },
   pages: {
     signIn: '/login',
   },
@@ -20,5 +19,5 @@ export const authConfig = {
       return true;
     },
   },
-  providers: [], // Add providers with an empty array for now
+  providers: [GitHub],
 } satisfies NextAuthConfig;
