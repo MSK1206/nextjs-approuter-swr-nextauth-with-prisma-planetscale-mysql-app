@@ -1,4 +1,4 @@
-import LogoutForm from "@/app/components/ui/Logout-Form";
+import LogoutForm from '@/app/components/ui/Logout-Form';
 
 export default function page() {
   return (
