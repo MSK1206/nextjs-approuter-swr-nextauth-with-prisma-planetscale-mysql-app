@@ -5,7 +5,7 @@ export default function LogoutForm() {
     <form
       action={async () => {
         'use server';
-        await signOut();
+        await signOut({ redirectTo: '/' });
       }}
     >
       <button className="btn btn-base-100 border border-slate-400 rounded-lg p-1 my-5 w-[250px] hover:text-transparent">
