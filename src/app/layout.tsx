@@ -3,6 +3,7 @@ import { Zen_Antique } from 'next/font/google';
 import { Suspense } from 'react';
 import Loading from './loading';
 import './globals.css';
+import Header from './components/base/Header';
 
 const zen = Zen_Antique({
   weight: '400',
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={zen.className}>
+        <Header />
         <Suspense fallback={<Loading />}>{children}</Suspense>
       </body>
     </html>
