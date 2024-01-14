@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import cx from 'classnames';
-import ActiveLink from '../LinkButton';
+import LinkButton from '../LinkButton';
 
 type MenuItem = {
   label: string;
@@ -35,7 +35,7 @@ export default function Menu() {
           })}
         >
           {menuItems.map((item, index) => (
-            <ActiveLink
+            <LinkButton
               key={index}
               href={item.link}
               linkLabel={item.label}
